@@ -261,4 +261,6 @@ namespace TwoStickClassicExample
     }
 }
 ```
-Comment out the update code in Tranform2D and run the program to make sure it works.
+Comment out the update code in Tranform2D and run the program to make sure it works. We will revisit this later when we include Position2d and Heading2D.
+
+### Player Systems
