@@ -187,3 +187,6 @@ namespace TwoStickClassicExample
 
 Comment out the logic in Health.cs so you are left with a class that inherits from Monobehaviour and has a public float variable called Value. Check that your game still works. If it does, delete the commented out code and move on to the next task.
 
+#### Finishing RemoveDeadSystem.cs
+
+We need to find and include the other factors which kill gameObjects. Going out of bounds results in death, as does the death of the player. Out of bounds whilst addressed the Enemy.cs logic, doesn't appear to be a factor in the hybrid project, but we will attempt to implement it anyway.
