@@ -12,20 +12,7 @@ namespace TwoStickClassicExample
             var player = FindObjectOfType<PlayerInput>();
             if (!player)
                 return;
-
-            // Movement
-            var settings = TwoStickBootstrap.Settings;
-            var minY = settings.playfield.yMin;
-            var maxY = settings.playfield.yMax;
-
-            var xform = GetComponent<Transform2D>();
-
-            // Remove Out of Bounds
-            if (xform.Position.y > maxY || xform.Position.y < minY)
-            {
-                GetComponent<Health>().Value = -1;
-            }
-            
+         
             // Shooting
             var playerPos = player.GetComponent<Transform2D>().Position;
 

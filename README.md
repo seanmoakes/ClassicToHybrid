@@ -190,3 +190,35 @@ Comment out the logic in Health.cs so you are left with a class that inherits fr
 #### Finishing RemoveDeadSystem.cs
 
 We need to find and include the other factors which kill gameObjects. Going out of bounds results in death, as does the death of the player. Out of bounds whilst addressed the Enemy.cs logic, doesn't appear to be a factor in the hybrid project, but we will attempt to implement it anyway.
+
+Add a PlayerCheck struct.
+```C#
+struct PlayerCheck
+{
+    public int Length;
+    [ReadOnly] public ComponentArray<PlayerInput> PlayerInput;
+}
+
+[Inject] private PlayerCheck m_PlayerCheck;
+```
+Modify the OnUpdate method body
+
+```C#
+protected override void OnUpdate()
+{
+    // See if we have any players
+    var playerDead = m_PlayerCheck.Length == 0;
+
+    // List to hold any GameObject to be destroyed
+    var toDestroy = new List<GameObject>();
+
+    // Iterate over all entities matching the declared ComponentGroup required types
+    for (int i = 0; i < entities.Length; i++)
+    {
+        // Logic from Health.cs
+        if (entities.healths[i].Value <= 0 || playerDead)
+            toDestroy.Add(entities.gameObjects[i]);
+    }
+
+	...
+```
