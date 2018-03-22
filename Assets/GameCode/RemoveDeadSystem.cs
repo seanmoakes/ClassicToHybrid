@@ -43,12 +43,20 @@ namespace TwoStickClassicExample
             // List to hold any GameObject to be destroyed
             var toDestroy = new List<GameObject>();
 
+            // Out of Bounds Checking
+            var settings = TwoStickBootstrap.Settings;
+            var minY = settings.playfield.yMin;
+            var maxY = settings.playfield.yMax;
+
             // Iterate over all entities matching the declared ComponentGroup required types
             for (int i = 0; i < entities.Length; i++)
             {
-                // Logic from Health.cs
-                if (entities.healths[i].Value <= 0 || playerDead)
+                var position = entities.gameObjects[i].GetComponent<Transform2D>().Position;
+                // Logic from Health.cs and Enemy.cs
+                if (entities.healths[i].Value <= 0 || playerDead || position.y > maxY || position.y < minY)
+                {
                     toDestroy.Add(entities.gameObjects[i]);
+                }
             }
 
             // Destroy all objects that we need to
