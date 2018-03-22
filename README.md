@@ -206,19 +206,22 @@ Modify the OnUpdate method body
 ```C#
 protected override void OnUpdate()
 {
-    // See if we have any players
-    var playerDead = m_PlayerCheck.Length == 0;
+// See if we have any players
+var playerDead = m_PlayerCheck.Length == 0;
 
-    // List to hold any GameObject to be destroyed
-    var toDestroy = new List<GameObject>();
+// List to hold any GameObject to be destroyed
+var toDestroy = new List<GameObject>();
 
-    // Iterate over all entities matching the declared ComponentGroup required types
-    for (int i = 0; i < entities.Length; i++)
-    {
-        // Logic from Health.cs
-        if (entities.healths[i].Value <= 0 || playerDead)
-            toDestroy.Add(entities.gameObjects[i]);
-    }
+// Out of Bounds Checking
+var settings = TwoStickBootstrap.Settings;
+var minY = settings.playfield.yMin;
+var maxY = settings.playfield.yMax;
 
+// Iterate over all entities matching the declared ComponentGroup required types
+for (int i = 0; i < entities.Length; i++)
+{
+    var position = entities.gameObjects[i].GetComponent<Transform2D>().Position;
+    // Logic from Health.cs and Enemy.cs
+    if (entities.healths[i].Value <= 0 || playerDead || position.y > maxY || position.y < minY)
 	...
 ```
