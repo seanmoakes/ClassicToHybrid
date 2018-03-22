@@ -17,7 +17,7 @@ namespace TwoStickClassicExample
 
         private void Update()
         {
-            var player = FindObjectOfType<Player>();
+            var player = FindObjectOfType<PlayerInput>();
             if (player != null)
             {
                 UpdateAlive(player);
@@ -40,7 +40,7 @@ namespace TwoStickClassicExample
             }
         }
 
-        private void UpdateAlive(Player player)
+        private void UpdateAlive(PlayerInput player)
         {
             HealthText.gameObject.SetActive(true);
             NewGameButton.gameObject.SetActive(false);

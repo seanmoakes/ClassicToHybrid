@@ -9,7 +9,7 @@ namespace TwoStickClassicExample
         private void Update()
         {
 
-            var player = FindObjectOfType<Player>();
+            var player = FindObjectOfType<PlayerInput>();
             if (!player)
             {
                 Destroy(gameObject);
@@ -22,6 +22,7 @@ namespace TwoStickClassicExample
 
             var xform = GetComponent<Transform2D>();
 
+            // Remove Out of Bounds
             if (xform.Position.y > maxY || xform.Position.y < minY)
             {
                 GetComponent<Health>().Value = -1;
