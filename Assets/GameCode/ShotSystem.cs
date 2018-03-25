@@ -21,9 +21,8 @@ namespace TwoStickClassicExample
                 : settings.EnemyShotPrefab;
             var newShot = Object.Instantiate(prefab);
                     
-            var shotXform = newShot.GetComponent<Transform2D>();
-            shotXform.Position = data.Position;
-            shotXform.Heading = data.Heading;
+            newShot.GetComponent<Position2D>().Value = data.Position;
+            newShot.GetComponent<Heading2D>().Value = data.Heading;
 
             var shotFaction = newShot.GetComponent<Faction>();
             shotFaction.Value = data.Faction.Value;

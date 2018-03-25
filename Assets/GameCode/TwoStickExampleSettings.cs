@@ -14,8 +14,8 @@ namespace TwoStickClassicExample
 
         public Shot PlayerShotPrefab;
         public Shot EnemyShotPrefab;
-        public Transform2D PlayerPrefab;
-        public Transform2D EnemyPrefab;
+        public GameObject PlayerPrefab;
+        public GameObject EnemyPrefab;
         public Faction EnemyFaction;
     }
 }

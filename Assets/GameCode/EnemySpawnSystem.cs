@@ -50,7 +50,7 @@ namespace TwoStickClassicExample
             return 0.15f;
         }
 
-        private void ComputeSpawnLocation(Transform2D xform)
+        private void ComputeSpawnLocation(GameObject enemy)
         {
             var settings = TwoStickBootstrap.Settings;
             
@@ -59,8 +59,8 @@ namespace TwoStickClassicExample
             float x1 = settings.playfield.xMax;
             float x = x0 + (x1 - x0) * r;
 
-            xform.Position = new float2(x, settings.playfield.yMax);
-            xform.Heading = new float2(0, -1);
+            enemy.GetComponent<Position2D>().Value = new float2(x, settings.playfield.yMax);
+            enemy.GetComponent<Heading2D>().Value = new float2(0, -1);
         }
     }
 

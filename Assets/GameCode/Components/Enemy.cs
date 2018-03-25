@@ -20,15 +20,13 @@ namespace TwoStickClassicExample
             var minY = settings.playfield.yMin;
             var maxY = settings.playfield.yMax;
 
-            var xform = GetComponent<Transform2D>();
-
-            if (xform.Position.y > maxY || xform.Position.y < minY)
+            if (GetComponent<Position2D>().Value.y > maxY || GetComponent<Position2D>().Value.y < minY)
             {
                 GetComponent<Health>().Value = -1;
             }
             
             // Shooting
-            var playerPos = player.GetComponent<Transform2D>().Position;
+            var playerPos = player.GetComponent<Position2D>().Value;
 
             var state = GetComponent<EnemyShootState>();
 
@@ -37,7 +35,7 @@ namespace TwoStickClassicExample
             if (state.Cooldown <= 0.0)
             {
                 state.Cooldown = TwoStickBootstrap.Settings.enemyShootRate;
-                var position = GetComponent<Transform2D>().Position;
+                var position = GetComponent<Position2D>().Value;
 
                 ShotSpawnData spawn = new ShotSpawnData()
                 {

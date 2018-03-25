@@ -19,12 +19,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4729160142083432}
+  - component: {fileID: 114339745794776256}
   - component: {fileID: 114907413577219394}
   - component: {fileID: 114819947172339940}
   - component: {fileID: 114036020523990432}
-  - component: {fileID: 114993363106851872}
   - component: {fileID: 33241449071221540}
   - component: {fileID: 23171003995313432}
+  - component: {fileID: 114066816467273860}
+  - component: {fileID: 114021269361480356}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -87,6 +89,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1547699395779418}
   m_Mesh: {fileID: 4300002, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
+--- !u!114 &114021269361480356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547699395779418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e762b629d9fa6a34b995b9f51cbedb31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value:
+    x: 0
+    y: 0
 --- !u!114 &114036020523990432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,6 +115,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value: 1
+--- !u!114 &114066816467273860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547699395779418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d03e187bfed44d42a0e0ef041d8fa7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value:
+    x: 0
+    y: 0
+--- !u!114 &114339745794776256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547699395779418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114819947172339940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,20 +170,3 @@ MonoBehaviour:
     x: 0
     y: 0
   FireCooldown: 0
---- !u!114 &114993363106851872
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1547699395779418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 957fbea1bd1f9447887e4fc7ff5f7b8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Position:
-    x: 0
-    y: 0
-  Heading:
-    x: 0
-    y: 0

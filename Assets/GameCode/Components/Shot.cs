@@ -13,7 +13,7 @@ namespace TwoStickClassicExample
         {
             // Move
 
-            var transform2D = GetComponent<Transform2D>();
+            
             
             // Collision
             var settings = TwoStickBootstrap.Settings;
@@ -33,12 +33,11 @@ namespace TwoStickClassicExample
                 float collisionRadius = GetCollisionRadius(settings, receiverFaction);
                 float collisionRadiusSquared = collisionRadius * collisionRadius;
 
-                var xform = health.GetComponent<Transform2D>();
-                float2 receiverPos = xform.Position;
+                float2 receiverPos = health.GetComponent<Position2D>().Value;
 
                 if (faction != receiverFaction)
                 {
-                    float2 shotPos = transform2D.Position;
+                    float2 shotPos = GetComponent<Position2D>().Value;
                     float2 delta = shotPos - receiverPos;
                     float distSquared = math.dot(delta, delta);
                     if (distSquared <= collisionRadiusSquared)
