@@ -59,8 +59,8 @@ namespace TwoStickClassicExample
             float x1 = settings.playfield.xMax;
             float x = x0 + (x1 - x0) * r;
 
-            enemy.GetComponent<Transform2D>().Position = new float2(x, settings.playfield.yMax);
-            enemy.GetComponent<Transform2D>().Heading = new float2(0, -1);
+            enemy.GetComponent<Position2D>().Value = new float2(x, settings.playfield.yMax);
+            enemy.GetComponent<Heading2D>().Value = new float2(0, -1);
         }
     }
 

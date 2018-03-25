@@ -18,8 +18,8 @@ namespace TwoStickClassicExample
         public static void NewGame()
         {
             var player = Object.Instantiate(Settings.PlayerPrefab);
-            player.GetComponent<Transform2D>().Position = new float2(0, 0);
-            player.GetComponent<Transform2D>().Heading = new float2(0, 1);
+            player.GetComponent<Position2D>().Value = new float2(0, 0);
+            player.GetComponent<Heading2D>().Value = new float2(0, 1);
         }
     }
 }

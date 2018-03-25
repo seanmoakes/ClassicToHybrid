@@ -24,20 +24,19 @@ namespace TwoStickClassicExample
             
             var settings = TwoStickBootstrap.Settings;
 
-            Transform2D xform = GetComponent<Transform2D>();
-
-            xform.Position += Time.deltaTime * Move * settings.playerMoveSpeed;
+            GetComponent<Position2D>().Value += Time.deltaTime * Move * settings.playerMoveSpeed;
 
             if (Fire)
             {
-                xform.Heading = math.normalize(Shoot);
+                GetComponent<Heading2D>().Value = math.normalize(Shoot);
+
                 FireCooldown = settings.playerFireCoolDown;
                 
                 var newShotData = new ShotSpawnData()
                 {
-                    Position = xform.Position,
-                    Heading = xform.Heading,
-                    Faction = xform.GetComponent<Faction>()
+                    Position = GetComponent<Position2D>().Value,
+                    Heading = GetComponent<Heading2D>().Value,
+                    Faction = GetComponent<Faction>()
                 };
                 
                 ShotSpawnSystem.SpawnShot(newShotData);
