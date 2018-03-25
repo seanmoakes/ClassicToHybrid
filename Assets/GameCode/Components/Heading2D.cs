@@ -1,16 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿namespace TwoStickClassicExample
+{
+    using System.Collections;
+    using System.Collections.Generic;
 
-public class Heading2D : MonoBehaviour {
+    using Unity.Mathematics;
+    using UnityEngine;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public class Heading2D : MonoBehaviour
+    {
+        public float2 Value;
+    }
 }

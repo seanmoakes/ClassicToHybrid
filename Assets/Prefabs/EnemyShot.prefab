@@ -26,6 +26,8 @@ GameObject:
   - component: {fileID: 114690813196801422}
   - component: {fileID: 33803616345066654}
   - component: {fileID: 114947139896687742}
+  - component: {fileID: 114555957764899120}
+  - component: {fileID: 114724541055034126}
   m_Layer: 0
   m_Name: EnemyShot
   m_TagString: Untagged
@@ -99,6 +101,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114555957764899120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1440049258192928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d03e187bfed44d42a0e0ef041d8fa7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114659731520911246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,6 +142,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeToLive: 2
   Energy: 5
+--- !u!114 &114724541055034126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1440049258192928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e762b629d9fa6a34b995b9f51cbedb31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114767484582729738
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿namespace TwoStickClassicExample
+{
+    using System.Collections;
+    using System.Collections.Generic;
 
-public class EnemySpawnSystemState : MonoBehaviour {
+    using UnityEngine;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public class EnemySpawnSystemState : MonoBehaviour
+    {
+        public int SpawnedEnemyCount;
+        public float Cooldown;
+        public Random.State RandomState;
+    }
 }
