@@ -10,13 +10,13 @@ namespace TwoStickClassicExample
     public class MoveSpeed : MonoBehaviour
     {
 
-        public float Speed;
+        public float Value;
         
         void Update ()
         {
             //var transform = GetComponent<Transform2D>();
             //transform.Position += transform.Heading * Speed * Time.deltaTime;
-            GetComponent<Position2D>().Value += GetComponent<Heading2D>().Value * Speed * Time.deltaTime;
+            //GetComponent<Position2D>().Value += GetComponent<Heading2D>().Value * Value * Time.deltaTime;
         }
     }
 }

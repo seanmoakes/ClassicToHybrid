@@ -18,7 +18,7 @@ namespace TwoStickClassicExample
             foreach (var entity in GetEntities<Data>())
             {
                 var pos = entity.Position;
-                pos.Value += entity.Heading.Value * entity.MoveSpeed.Speed * dt;
+                pos.Value += entity.Heading.Value * entity.MoveSpeed.Value * dt;
             }
         }
     }
