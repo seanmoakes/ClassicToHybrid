@@ -20,26 +20,6 @@ namespace TwoStickClassicExample
                 GetComponent<Health>().Value = -1;
             }
             
-            // Shooting
-            var playerPos = player.GetComponent<Position2D>().Value;
-
-            var state = GetComponent<EnemyShootState>();
-
-            state.Cooldown -= Time.deltaTime;
-            
-            if (state.Cooldown <= 0.0)
-            {
-                state.Cooldown = TwoStickBootstrap.Settings.enemyShootRate;
-                var position = GetComponent<Position2D>().Value;
-
-                ShotSpawnData spawn = new ShotSpawnData()
-                {
-                    Position = position,
-                    Heading = math.normalize(playerPos - position),
-                    Faction = TwoStickBootstrap.Settings.EnemyFaction
-                };
-                ShotSpawnSystem.SpawnShot(spawn);
-            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Unity.Entities;
+﻿using System.Collections.Generic;
+using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace TwoStickClassicExample
@@ -25,7 +27,48 @@ namespace TwoStickClassicExample
 
         protected override void OnUpdate()
         {
-            throw new System.NotImplementedException();
+            if (m_Player.Length == 0)
+                return;
+
+            //  var playerPos = player.GetComponent<Position2D>().Value;
+            var playerPos = m_Player.Position[0].Value;
+
+            var shotSpawnData = new List<ShotSpawnData>();
+
+            float dt = Time.deltaTime;
+            float shootRate = TwoStickBootstrap.Settings.enemyShootRate;
+
+            for (int i = 0; i < m_Data.Length; i++)
+            {
+                //var state = GetComponent<EnemyShootState>();
+                var state = m_Data.ShootState[i];
+
+                //state.Cooldown -= Time.deltaTime;
+                state.Cooldown -= dt;
+
+                if (state.Cooldown <= 0.0)
+                {
+                    //state.Cooldown = TwoStickBootstrap.Settings.enemyShootRate;
+                    state.Cooldown = shootRate;
+
+                    //var position = GetComponent<Position2D>().Value;
+                    var position = m_Data.Position[i].Value;
+
+                    ShotSpawnData spawn = new ShotSpawnData()
+                    {
+                        Position = position,
+                        Heading = math.normalize(playerPos - position),
+                        Faction = TwoStickBootstrap.Settings.EnemyFaction
+                    };
+                    //ShotSpawnSystem.SpawnShot(spawn);
+                    shotSpawnData.Add(spawn);
+                }
+            }
+
+            foreach (var spawn in shotSpawnData)
+            {
+                ShotSpawnSystem.SpawnShot(spawn);
+            }
         }
     }
 }
