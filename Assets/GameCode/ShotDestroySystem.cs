@@ -1,4 +1,5 @@
-﻿using Unity.Collections;
+﻿using System.Collections.Generic;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Transforms2D;
 using UnityEngine;
@@ -24,7 +25,24 @@ namespace TwoStickClassicExample
 
         protected override void OnUpdate()
         {
-            throw new System.NotImplementedException();
+            var isPlayerDead = m_PlayerCheck.Length == 0;
+
+            var toDestroy = new List<GameObject>();
+
+            foreach (var entity in GetEntities<Data>())
+            {
+                var s = entity.Shot;
+
+                if (isPlayerDead)
+                {
+                    toDestroy.Add(s.gameObject);
+                }
+            }
+
+            foreach (var go in toDestroy)
+            {
+                Object.Destroy(go);
+            }
         }
     }
 }

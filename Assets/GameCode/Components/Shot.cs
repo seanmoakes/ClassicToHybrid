@@ -19,11 +19,11 @@ namespace TwoStickClassicExample
             var settings = TwoStickBootstrap.Settings;
 
             var receivers = FindObjectsOfType(typeof(Health));
-            if (receivers.Length == 0)
-            {
-                Destroy(gameObject);
-                return;
-            }
+            //if (receivers.Length == 0)
+            //{
+            //    Destroy(gameObject);
+            //    return;
+            //}
 
             var faction = GetComponent<Faction>().Value;
             
