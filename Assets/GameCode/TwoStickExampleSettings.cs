@@ -17,5 +17,6 @@ namespace TwoStickClassicExample
         public GameObject PlayerPrefab;
         public GameObject EnemyPrefab;
         public Faction EnemyFaction;
+        public EnemySpawnSystemState EnemySpawnState;
     }
 }
