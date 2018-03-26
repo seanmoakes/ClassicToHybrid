@@ -4,7 +4,7 @@ using UnityEngine;
 namespace TwoStickClassicExample
 {
 
-    public class Player : MonoBehaviour
+    public class PlayerInput : MonoBehaviour
     {
         [HideInInspector] public float2 Move;
         [HideInInspector] public float2 Shoot;
@@ -13,15 +13,7 @@ namespace TwoStickClassicExample
         public bool Fire => FireCooldown <= 0.0 && math.length(Shoot) > 0.5f;
 
         private void Update()
-        {
-
-            Move.x = Input.GetAxis("Horizontal");
-            Move.y = Input.GetAxis("Vertical");
-            Shoot.x = Input.GetAxis("ShootX");
-            Shoot.y = Input.GetAxis("ShootY");
-
-            FireCooldown = Mathf.Max(0.0f, FireCooldown - Time.deltaTime);
-            
+        {            
             var settings = TwoStickBootstrap.Settings;
 
             GetComponent<Position2D>().Value += Time.deltaTime * Move * settings.playerMoveSpeed;

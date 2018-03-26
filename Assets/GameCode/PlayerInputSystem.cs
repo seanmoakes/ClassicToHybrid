@@ -8,7 +8,7 @@ namespace TwoStickClassicExample
         struct PlayerData
         {
 
-            public Player Input;
+            public PlayerInput Input;
         }
 
         protected override void OnUpdate()
