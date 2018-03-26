@@ -11,19 +11,11 @@ namespace TwoStickClassicExample
 
         private void Update()
         {
-            // Move
-
-            
-            
+ 
             // Collision
             var settings = TwoStickBootstrap.Settings;
 
             var receivers = FindObjectsOfType(typeof(Health));
-            //if (receivers.Length == 0)
-            //{
-            //    Destroy(gameObject);
-            //    return;
-            //}
 
             var faction = GetComponent<Faction>().Value;
             
@@ -52,12 +44,6 @@ namespace TwoStickClassicExample
                 }
             }
             
-            //// Destroy
-            //TimeToLive -= Time.deltaTime;
-            //if (TimeToLive <= 0.0f)
-            //{
-            //    Destroy(gameObject);
-            //}
         }
 
         static float GetCollisionRadius(TwoStickExampleSettings settings, Faction.Type faction)
