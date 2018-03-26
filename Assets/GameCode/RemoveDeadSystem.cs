@@ -1,4 +1,5 @@
-﻿using Unity.Collections;
+﻿using System.Collections.Generic;
+using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 
@@ -24,7 +25,21 @@ namespace TwoStickClassicExample
 
         protected override void OnUpdate()
         {
-            throw new System.NotImplementedException();
+
+            var toDestroy = new List<GameObject>();
+
+            for (int i = 0; i < entities.Length; i++)
+            {
+                if (entities.healths[i].Value <= 0)
+                {
+                    toDestroy.Add(entities.gameObjects[i]);
+                }
+            }
+
+            foreach (var go in toDestroy)
+            {
+                Object.Destroy(go);
+            }
         }
     }
 }
