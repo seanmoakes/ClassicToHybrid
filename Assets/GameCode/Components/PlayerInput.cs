@@ -12,27 +12,27 @@ namespace TwoStickClassicExample
 
         public bool Fire => FireCooldown <= 0.0 && math.length(Shoot) > 0.5f;
 
-        private void Update()
-        {            
-            var settings = TwoStickBootstrap.Settings;
+        //private void Update()
+        //{            
+        //    var settings = TwoStickBootstrap.Settings;
 
-            GetComponent<Position2D>().Value += Time.deltaTime * Move * settings.playerMoveSpeed;
+        //    GetComponent<Position2D>().Value += Time.deltaTime * Move * settings.playerMoveSpeed;
 
-            if (Fire)
-            {
-                GetComponent<Heading2D>().Value = math.normalize(Shoot);
+        //    if (Fire)
+        //    {
+        //        GetComponent<Heading2D>().Value = math.normalize(Shoot);
 
-                FireCooldown = settings.playerFireCoolDown;
+        //        FireCooldown = settings.playerFireCoolDown;
                 
-                var newShotData = new ShotSpawnData()
-                {
-                    Position = GetComponent<Position2D>().Value,
-                    Heading = GetComponent<Heading2D>().Value,
-                    Faction = GetComponent<Faction>()
-                };
+        //        var newShotData = new ShotSpawnData()
+        //        {
+        //            Position = GetComponent<Position2D>().Value,
+        //            Heading = GetComponent<Heading2D>().Value,
+        //            Faction = GetComponent<Faction>()
+        //        };
                 
-                ShotSpawnSystem.SpawnShot(newShotData);
-            }
-        }
+        //        ShotSpawnSystem.SpawnShot(newShotData);
+        //    }
+        //}
     }
 }
