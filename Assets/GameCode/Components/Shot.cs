@@ -52,12 +52,12 @@ namespace TwoStickClassicExample
                 }
             }
             
-            // Destroy
-            TimeToLive -= Time.deltaTime;
-            if (TimeToLive <= 0.0f)
-            {
-                Destroy(gameObject);
-            }
+            //// Destroy
+            //TimeToLive -= Time.deltaTime;
+            //if (TimeToLive <= 0.0f)
+            //{
+            //    Destroy(gameObject);
+            //}
         }
 
         static float GetCollisionRadius(TwoStickExampleSettings settings, Faction.Type faction)

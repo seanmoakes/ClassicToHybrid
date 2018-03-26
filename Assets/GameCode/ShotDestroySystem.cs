@@ -26,6 +26,7 @@ namespace TwoStickClassicExample
         protected override void OnUpdate()
         {
             var isPlayerDead = m_PlayerCheck.Length == 0;
+            float dt = Time.deltaTime;
 
             var toDestroy = new List<GameObject>();
 
@@ -33,7 +34,9 @@ namespace TwoStickClassicExample
             {
                 var s = entity.Shot;
 
-                if (isPlayerDead)
+                s.TimeToLive -= dt;
+
+                if (isPlayerDead || s.TimeToLive <= 0.0f)
                 {
                     toDestroy.Add(s.gameObject);
                 }
