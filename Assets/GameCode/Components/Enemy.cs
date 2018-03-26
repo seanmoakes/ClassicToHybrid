@@ -10,12 +10,7 @@ namespace TwoStickClassicExample
         {
 
             var player = FindObjectOfType<PlayerInput>();
-            //if (!player)
-            //{
-            //    Destroy(gameObject);
-            //    return;
-            //}
-            // Movement
+
             var settings = TwoStickBootstrap.Settings;
             var minY = settings.playfield.yMin;
             var maxY = settings.playfield.yMax;
