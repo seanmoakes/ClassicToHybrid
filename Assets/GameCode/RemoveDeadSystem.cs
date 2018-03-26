@@ -27,10 +27,11 @@ namespace TwoStickClassicExample
         {
 
             var toDestroy = new List<GameObject>();
+            var isPlayerDead = m_PlayerCheck.Length == 0;
 
             for (int i = 0; i < entities.Length; i++)
             {
-                if (entities.healths[i].Value <= 0)
+                if (entities.healths[i].Value <= 0 || isPlayerDead)
                 {
                     toDestroy.Add(entities.gameObjects[i]);
                 }
