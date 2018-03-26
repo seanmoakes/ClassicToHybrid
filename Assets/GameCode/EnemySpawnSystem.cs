@@ -1,47 +1,76 @@
-﻿using Unity.Mathematics;
+﻿using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace TwoStickClassicExample
 {
     // Spawns new enemies.
-    public class EnemySpawnSystem : MonoBehaviour
+    // public class EnemySpawnSystem : MonoBehaviour
+    public class EnemySpawnSystem : ComponentSystem
     {
+        //public int SpawnedEnemyCount;
+        //public float Cooldown;
+        //public Random.State RandomState;
 
-        public int SpawnedEnemyCount;
-        public float Cooldown;
-        public Random.State RandomState;
+        public struct State
+        {
+            public int Length;
+            public ComponentArray<EnemySpawnSystemState> S;
+        }
 
-        void Start()
+        [Inject] private State m_State;
+
+        //void Start()
+        public static void SetupComponentData()
         {
             var oldState = Random.state;
             Random.InitState(0xaf77);
-            
-            Cooldown = 0.0f;
-            SpawnedEnemyCount = 0;
-            RandomState = Random.state;
+
+            var state = TwoStickBootstrap.Settings.EnemySpawnState;
+
+            //Cooldown = 0.0f;
+            state.Cooldown = 0.0f;
+
+            //SpawnedEnemyCount = 0;
+            state.SpawnedEnemyCount = 0;
+
+            //RandomState = Random.state;
+            state.RandomState = Random.state;
+
             Random.state = oldState;
         }
 
-        protected void Update()
+        // protected void Update()
+        protected override void OnUpdate()
         {
+            var state = m_State.S[0];
 
             var oldState = Random.state;
-            Random.state = RandomState;
+            
+            //Random.state = RandomState;
+            Random.state = state.RandomState;
 
-            Cooldown -= Time.deltaTime;
+            //Cooldown -= Time.deltaTime;
+            state.Cooldown -= Time.deltaTime;
 
-            if (Cooldown <= 0.0f)
+            //if (Cooldown <= 0.0f)
+            if (state.Cooldown <= 0.0f)
             {
                 var settings = TwoStickBootstrap.Settings;
                 var enemy = Object.Instantiate(settings.EnemyPrefab);
-                //@TODO set transform
+
                 ComputeSpawnLocation(enemy);
-                SpawnedEnemyCount++;
-                Cooldown = ComputeCooldown(SpawnedEnemyCount);
+
+                //SpawnedEnemyCount++;
+                state.SpawnedEnemyCount++;
+
+                //Cooldown = ComputeCooldown(SpawnedEnemyCount);
+                state.Cooldown = ComputeCooldown(state.SpawnedEnemyCount);
+
             }
 
-            RandomState = Random.state;
-            
+            //RandomState = Random.state;
+            state.RandomState = Random.state;
             Random.state = oldState;
         }
 
@@ -60,7 +89,7 @@ namespace TwoStickClassicExample
             float x = x0 + (x1 - x0) * r;
 
             enemy.GetComponent<Position2D>().Value = new float2(x, settings.playfield.yMax);
-            enemy.GetComponent<Heading2D>().Value = new float2(0, -1);
+            enemy.GetComponent<Heading2D>().Value = new float2(0, -TwoStickBootstrap.Settings.enemySpeed);
         }
     }
 

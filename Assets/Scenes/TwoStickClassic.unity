@@ -155,10 +155,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMoveSpeed: 15
   playerFireCoolDown: 0.1
-  enemySpeed: 0.1
-  enemyShootRate: 2
-  playerCollisionRadius: 2
-  enemyCollisionRadius: 2
+  enemySpeed: 6
+  enemyShootRate: 1
+  playerCollisionRadius: 1
+  enemyCollisionRadius: 1
   playfield:
     serializedVersion: 2
     x: -30
@@ -331,15 +331,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4658676264513968, guid: f094554bad5e51242887541639515acd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.3412
       objectReference: {fileID: 0}
     - target: {fileID: 4658676264513968, guid: f094554bad5e51242887541639515acd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.40045
       objectReference: {fileID: 0}
     - target: {fileID: 4658676264513968, guid: f094554bad5e51242887541639515acd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.2023
       objectReference: {fileID: 0}
     - target: {fileID: 4658676264513968, guid: f094554bad5e51242887541639515acd, type: 2}
       propertyPath: m_LocalRotation.x
@@ -359,7 +359,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4658676264513968, guid: f094554bad5e51242887541639515acd, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f094554bad5e51242887541639515acd, type: 2}
@@ -475,7 +475,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9930946b7c5f48e44aef1e56c2de7315, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9930946b7c5f48e44aef1e56c2de7315, type: 2}
@@ -540,7 +540,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1123666018
 GameObject:
@@ -741,7 +741,7 @@ RectTransform:
   - {fileID: 647788659}
   - {fileID: 1123666019}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -844,50 +844,3 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1635503396}
---- !u!1 &1927426522
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1927426524}
-  - component: {fileID: 1927426523}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1927426523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1927426522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8649e0af7c96347a09694d112eff8a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnedEnemyCount: 0
-  Cooldown: 0
-  RandomState:
-    s0: 0
-    s1: 0
-    s2: 0
-    s3: 0
---- !u!4 &1927426524
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1927426522}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 283, y: 182.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

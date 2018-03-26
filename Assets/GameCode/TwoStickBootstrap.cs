@@ -15,6 +15,7 @@ namespace TwoStickClassicExample
             var settingsGO = GameObject.Find("Settings");
             Settings = settingsGO?.GetComponent<TwoStickExampleSettings>();
 
+            EnemySpawnSystem.SetupComponentData();
             World.Active.GetOrCreateManager<UpdatePlayerHUD>().SetupGameObjects();
         }
 
