@@ -23,7 +23,7 @@ namespace TwoStickClassicExample
         public Button NewGameButton;
         public Text HealthText;
 
-        private void Start()
+        public void SetupGameObjects()
         {
             // Find these in the game.
             NewGameButton = GameObject.Find("NewGameButton").GetComponent<Button>();

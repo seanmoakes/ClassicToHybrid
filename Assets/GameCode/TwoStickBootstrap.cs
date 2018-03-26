@@ -1,4 +1,5 @@
-﻿using Unity.Mathematics;
+﻿using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace TwoStickClassicExample
@@ -13,6 +14,8 @@ namespace TwoStickClassicExample
         {
             var settingsGO = GameObject.Find("Settings");
             Settings = settingsGO?.GetComponent<TwoStickExampleSettings>();
+
+            World.Active.GetOrCreateManager<UpdatePlayerHUD>().SetupGameObjects();
         }
 
         public static void NewGame()
