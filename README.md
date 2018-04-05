@@ -264,3 +264,33 @@ In implementing this first System, we have a potential workflow to use for the r
 If you want to challenge yourself then I would stop reading now and go and see if this workflow works for you.
 
 I [documented the process I followed in creating the systems](./SystemDesign.md), but I thought it might be useful to highlight some things I found interesting along the way.
+
+## Notes
+
+### Multiple Required Component Groups
+
+The following systems use more than 1 required Component structs.
+
+- DamageSystem.cs
+  1. ReceiverData
+  2. ShotData
+- EnemyShootSystem.cs
+  1. Data
+  2. PlayerData
+- RemoveDeadSystem.cs
+  1. Entities
+  2. PlayerCheck
+- ShotDestroySystem.cs
+  1. Data
+  2. PlayerCheck
+
+If we look at ShotDestroySystem.cs, we can see that it is possible to use both Types of Component Group array in the same System.
+
+### Use Length in injected Component Groups
+
+Add "public int Length;" to Component Group Arrays that use Injection. When this is included, it is assigned the length of the return array, making it easy to iterate over the array's content.
+
+### Common Efficiency Improvements
+
+Many of the systems are made more efficient by moving functions outside of loops, this is often done with Time.deltaTime. Null checks are also added to the start of many Systems' OnUpdate function to abort at the first hurdle.
+
