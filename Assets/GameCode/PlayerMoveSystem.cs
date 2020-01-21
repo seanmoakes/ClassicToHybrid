@@ -3,7 +3,6 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-
 namespace TwoStickClassicExample
 {
     public class PlayerMoveSystem : ComponentSystem

@@ -7,7 +7,6 @@ namespace TwoStickClassicExample
     {
         struct PlayerData
         {
-
             public PlayerInput Input;
         }
 

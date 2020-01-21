@@ -18,7 +18,6 @@ namespace TwoStickClassicExample
         {
             foreach (var entity in GetEntities<Data>())
             {
-
                 float2 p = entity.Position.Value;
                 float2 h = entity.Heading.Value;
                 entity.Output.position = new float3(p.x, 0, p.y);
@@ -27,5 +26,4 @@ namespace TwoStickClassicExample
             }
         }
     }
-
 }

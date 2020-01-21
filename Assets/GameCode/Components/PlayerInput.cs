@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace TwoStickClassicExample
 {
-
     public class PlayerInput : MonoBehaviour
     {
         [HideInInspector] public float2 Move;

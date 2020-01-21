@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace TwoStickClassicExample
 {
-
     public class Shot : MonoBehaviour
     {
         public float TimeToLive;

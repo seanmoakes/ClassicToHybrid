@@ -8,7 +8,6 @@ namespace TwoStickClassicExample
     {
         public static TwoStickExampleSettings Settings;
 
-
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         public static void InitializeWithScene()
         {

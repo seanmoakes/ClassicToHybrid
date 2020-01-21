@@ -31,7 +31,6 @@ namespace TwoStickClassicExample
             NewGameButton.onClick.AddListener(TwoStickBootstrap.NewGame);
         }
 
-
         protected override void OnUpdate()
         {
             //if (player != null)

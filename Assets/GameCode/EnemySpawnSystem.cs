@@ -92,5 +92,4 @@ namespace TwoStickClassicExample
             enemy.GetComponent<Heading2D>().Value = new float2(0, -TwoStickBootstrap.Settings.enemySpeed);
         }
     }
-
 }

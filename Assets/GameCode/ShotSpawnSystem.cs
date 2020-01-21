@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace TwoStickClassicExample
 {
-
     public class ShotSpawnData
     {
         public float2 Position;
@@ -28,5 +27,4 @@ namespace TwoStickClassicExample
             shotFaction.Value = data.Faction.Value;
         }
     }
-
 }

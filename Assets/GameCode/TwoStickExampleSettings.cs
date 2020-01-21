@@ -11,7 +11,6 @@ namespace TwoStickClassicExample
         public float playerCollisionRadius = 1.0f;
         public float enemyCollisionRadius = 1.0f;
         public Rect playfield = new Rect { x = -30.0f, y = -30.0f, width = 60.0f, height = 60.0f }; 
-
         public Shot PlayerShotPrefab;
         public Shot EnemyShotPrefab;
         public GameObject PlayerPrefab;
