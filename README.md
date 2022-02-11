@@ -1,4 +1,4 @@
-# Using ECS On Existing Unity Projects
+# Using ECS On Existing Unity Projects - Please Note a lot of this project is now out of date
 
 ## Introduction
 
